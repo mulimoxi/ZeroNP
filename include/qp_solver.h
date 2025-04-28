@@ -1,0 +1,73 @@
+#pragma once
+#include "subnp.h"
+#include "linalg.h"
+#include "linsys.h"
+// #include <mkl.h>
+#include "osqp.h"
+#include <math.h>
+#include "zeronp_util.h"
+
+void proj(
+    zeronp_float *p,
+    ZERONPWork *w);
+// zeronp_int qpsolver(
+zeronp_float qpsolver(
+    zeronp_int n,
+    zeronp_float *H,
+    zeronp_float *g,
+    zeronp_int m1,
+    zeronp_int m2,
+    zeronp_float *A,
+    zeronp_float *b,
+    zeronp_float *lb,
+    zeronp_float *ub,
+    zeronp_float *p,
+    zeronp_float *lambda);
+zeronp_int find_int_feas_sol_osqp(
+    SUBNPWork *w_sub,
+    ZERONPWork *w,
+    ZERONPSettings *stgs,
+    ZERONPInfo *info);
+// zeronp_int find_int_feas_sol_aff(
+zeronp_float find_int_feas_sol_aff(
+    SUBNPWork *w_sub,
+    ZERONPWork *w,
+    ZERONPSettings *stgs,
+    ZERONPInfo *info);
+void solve_qp_osqp(
+    ZERONPWork *w,
+    SUBNPWork *w_sub,
+    zeronp_float *p0,
+    zeronp_float *y,
+    zeronp_float *g,
+    ZERONPInfo *info);
+// void solve_qp_aff(
+zeronp_float solve_qp_aff(
+    ZERONPWork *w,
+    SUBNPWork *w_sub,
+    zeronp_float *p0,
+    zeronp_float *y,
+    zeronp_float *g,
+    zeronp_int sys,
+    ZERONPInfo *info);
+void Gradient_descent(
+    ZERONPWork *w,
+    zeronp_float *p0,
+    zeronp_float *g,
+    zeronp_float stepsize);
+zeronp_float *sub_trustreg(
+    zeronp_float *Q,
+    zeronp_float *c,
+    zeronp_float *G,
+    zeronp_float delta,
+    zeronp_float tol);
+
+zeronp_float drsom(
+    ZERONPWork *w,
+    SUBNPWork *w_sub,
+    ZERONPSettings *stgs,
+    zeronp_float *p0,
+    zeronp_float *g,
+    zeronp_float *m,
+    zeronp_float radius,
+    zeronp_float val);
