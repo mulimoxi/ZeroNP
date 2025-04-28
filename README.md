@@ -1,6 +1,6 @@
 #  ZeroNP README
 ## Basic Introduction
-This is C implementation of ZERONP algorithm, which is proposed by Yinyu Ye (1989) and originally implemented in Matlab. Various improvements have been made to increase the robustness and reduce number of function evaluations compared with the original version. 
+This is C implementation of SOLNP algorithm(Original name:SOLNP_PLUS), which is proposed by Yinyu Ye (1989) and originally implemented in Matlab. Various improvements have been made to increase the robustness and reduce number of function evaluations compared with the original version. 
     
 ZeroNP solves the general derivative-free nonlinear constrained problems of the form:
 
