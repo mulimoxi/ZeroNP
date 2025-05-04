@@ -8,7 +8,7 @@ CMake  >= 3.5.1
 
 ## Installation
 
-Currently, we provide C, MATLAB, Python and Julia interface on macOS, Linux and Windows. 
+Currently, we provide MATLAB and Python interface on macOS, Linux and Windows. 
 
 In terms of the linear algebra library, we provide support for both Intel MKL and open-source LAPACK, which should be installed in advance. On macOS, there is no need to install any linear algebra library, as we leverage Apple's proprietary **Accelerate framework**. On Linux and Windows, you can decide whether to use MKL by configuring the parameter **LINK_MKL** in **CMakeLists.txt**. If LAPACK or MKL can not be found automatically, you can specify the path in **CMakeLists.txt** manually. Before installation, you also need to specify the environment variables of OSQP directories:
 
@@ -24,7 +24,7 @@ cd interface/Matlab
 make_zeronp
 ```
 
-As for C, Python and Julia interface, you need to first compile ZeroNP source code:
+As for Python interface, you need to first compile ZeroNP source code:
 
 On Linux and macOS :
 
@@ -46,17 +46,7 @@ cmake -G "MinGW Makefiles" ..
 cmake --build .
 ```
 
-After compiling source code, you can directly use the C interface. We give **CMakeLists.txt** and a simple example, from which you can compile executable file:
-
-```bash
-cd ZERONP_PLUS_ROOT
-cd interface/C/build
-cmake ..
-cmake --build .
-./zeronp_demo
-```
-
-You can also Install and test Python interface:
+Then you can Install and test Python interface:
 
 ```bash
 cd ZERONP_PLUS_ROOT
@@ -64,16 +54,4 @@ cd interface/Python
 python setup.py install
 cd test
 python test.py
-```
-
-And Julia interface:
-```bash
-cd ZERONP_PLUS_ROOT
-cd interface/Julia
-```
-
-- Type in `julia` in command line to start a Julia REPL. Then type in `]` to enter Pkg mode and type in `dev ./ZERONP/`. Type in `[Backspace]` to leave Pkg mode.
-- To test whether everything is ready, try to run test file in Julia REPL by typing in
-```julia
-julia> include("./ZERONP/test/test.jl")
 ```
